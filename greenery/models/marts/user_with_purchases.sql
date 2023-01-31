@@ -4,7 +4,7 @@ CASE WHEN COUNT(order_id) = 1 THEN '1'
 WHEN COUNT(order_id) = 2 THEN '2'
 WHEN COUNT(order_id) >= 3 THEN '3+' 
 END AS purchase 
-FROM public.orders
+FROM {{ ref('stg_greenery__orders')}}
 GROUP BY 1
 )
 
